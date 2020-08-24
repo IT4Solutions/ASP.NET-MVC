@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "UsersList";
+}
+
+<h2>This is The List of Users</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in ViewBag.UsersList)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.IsActive</td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
