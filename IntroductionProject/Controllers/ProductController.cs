@@ -1,4 +1,5 @@
 ﻿using IntroductionProject.Models;
+using IntroductionProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace IntroductionProject.Controllers
                 {
                     Id = 1,
                     Name = "Oppo F11 Pro",
-                    Category = "Mobiles",
+                    CategoryId = 1,
                     Supplier = "What Mobiles",
                     PurchasePrice = 45000,
                     SalesPrice = 55000,
@@ -28,7 +29,7 @@ namespace IntroductionProject.Controllers
                 {
                     Id = 2,
                     Name = "Reno",
-                    Category = "Mobiles",
+                    CategoryId = 1,
                     Supplier = "What Mobiles",
                     PurchasePrice = 45000,
                     SalesPrice = 55000,
@@ -39,7 +40,7 @@ namespace IntroductionProject.Controllers
                 {
                     Id = 3,
                     Name = "I Phone 4",
-                    Category = "Mobiles",
+                    CategoryId = 1,
                     Supplier = "What Mobiles",
                     PurchasePrice = 45000,
                     SalesPrice = 55000,
@@ -57,7 +58,7 @@ namespace IntroductionProject.Controllers
             {
                 Id = 1,
                 Name = "Oppo F11 Pro",
-                Category = "Mobiles",
+                CategoryId = 1,
                 Supplier = "What Mobiles",
                 PurchasePrice = 45000,
                 SalesPrice = 55000,
@@ -94,7 +95,7 @@ namespace IntroductionProject.Controllers
             {
                 Id = 1,
                 Name = "Oppo F11 Pro",
-                Category = "Mobiles",
+                CategoryId = 1,
                 Supplier = "What Mobiles",
                 PurchasePrice = 45000,
                 SalesPrice = 55000,
@@ -103,6 +104,60 @@ namespace IntroductionProject.Controllers
             };
 
             return View("SaveorUpdate", productById);
+        }
+
+        public ActionResult CategorywiseProducts()
+        {
+            var category = new Category
+            {
+                Id = 1,
+                Name = "Mobiles"
+            };
+
+            var products = new List<Product>
+            {
+                new Product
+                {
+                    Id = 1,
+                    Name = "Oppo F11 Pro",
+                    CategoryId = 1,
+                    Supplier = "What Mobiles",
+                    PurchasePrice = 45000,
+                    SalesPrice = 55000,
+                    Quantity = 10,
+                    Description = "4GB 128 GB Best Resolution"
+                },
+                new Product
+                {
+                    Id = 2,
+                    Name = "Reno",
+                    CategoryId = 1,
+                    Supplier = "What Mobiles",
+                    PurchasePrice = 45000,
+                    SalesPrice = 55000,
+                    Quantity = 10,
+                    Description = "4GB 128 GB Best Resolution"
+                },
+                new Product
+                {
+                    Id = 3,
+                    Name = "I Phone 4",
+                    CategoryId = 1,
+                    Supplier = "What Mobiles",
+                    PurchasePrice = 45000,
+                    SalesPrice = 55000,
+                    Quantity = 10,
+                    Description = "4GB 128 GB Best Resolution"
+                }
+            };
+
+            var viewModel = new CategoryListViewModel
+            {
+                Category = category,
+                Product = products
+            };
+
+            return View(viewModel);
         }
     }
 }

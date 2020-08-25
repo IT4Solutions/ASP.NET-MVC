@@ -1,0 +1,38 @@
+﻿@model IntroductionProject.ViewModels.CategoryListViewModel
+
+@{
+    ViewBag.Title = "CategorywiseProducts";
+}
+
+<h2>Category Wise Products</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h3>@Model.Category.Id - @Model.Category.Name</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Purchase Price</th>
+        <th>Sales Price</th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model.Product) {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.PurchasePrice</td>
+        <td>@item.SalesPrice</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -8,7 +8,7 @@ namespace IntroductionProject.Models
 
         [Display(Name ="Product Name")]
         public string Name { get; set; }
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
         public string Supplier { get; set; }
         public decimal Quantity { get; set; }
 
